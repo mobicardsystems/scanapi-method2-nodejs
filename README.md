@@ -70,7 +70,7 @@ JSON Success Response
         "card_biin_country_numeric": "404",
         "card_biin_risk_flag": 0
     },
-    "addendum_data": "your_custom_data_here_will_be_returned_as_is in the addendum_data field"
+    "addendum_data": "your_custom_data_here_will_be_returned_as_is in the mobicard_extra_data field"
 }
 ```
 ### Response Fields Explanation:
@@ -229,3 +229,26 @@ Performance Tips:
  *   Use **card_exif_information.card_exif_is_instant_photo_flag** for fraud control
  *   Use **card_exif_information.card_exif_tamper_flag** for fraud control
  *   Handle error status codes appropriately especially 250 and 430 for smoother flow
+
+
+
+**IMPORTANT SECURITY NOTICE**
+
+**Server-Side Validation**
+
+For editability reasons, the raw card data in the code samples above is sent back to the client side in the rare case that the end user might want to correct any OCR errors in the card information.
+
+For enhanced security, you may need to validate the card information by performing a server-to-server <b>Detokenization API</b> request using the <code>card_token</code> value provided in the Scan Card API Success response to retrieve the card information directly as well as validate the fields below against the corresponding original <b>Scan Card API</b> request details as shown below (Check for a match for mobicard_txn_reference and mobicard_token_id):
+
+
+
+ *   **mobicard_custom_one** : Corresponds to the original scan card API request parameter **mobicard_txn_reference**
+ 
+ *   **mobicard_custom_two** : Corresponds to the original scan card API request parameter **mobicard_custom_two**
+ 
+ *   **mobicard_custom_three** : Corresponds to the original scan card API response parameter **card_scan_request_id**
+ 
+ *   **addendum_data** : Corresponds to the original scan card API response parameter **timestamp**
+
+     
+
