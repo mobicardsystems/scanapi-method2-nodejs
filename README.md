@@ -16,6 +16,7 @@ JSON Success Response
     "status_message": "SUCCESS",
     "card_scan_request_id": "18678121768809362",
     "mobicard_txn_reference": "327005622",
+    "mobicard_token_id": "325026456",
     "timestamp": "2026-01-19 07:56:02",
     "card_information": {
         "card_number": "5173350006475601",
@@ -145,6 +146,7 @@ All flags are always returned and as either 0 or 1
 | `status_message` | **Yes** | Status description | `"SUCCESS"` |
 | `card_scan_request_id` | **Yes** | Unique scan request identifier | `"18678121768809362"` |
 | `mobicard_txn_reference` | **Yes** | Your original transaction reference | `"327005622"` |
+| `mobicard_token_id` | **Yes** | Your unique API request id | `"325026456"` |	
 | `timestamp` | **Yes** | Response timestamp | `"2026-01-19 07:56:02"` |
 | **card_information** | | | |
 | `card_information.card_number` | **Yes** | Full card number | `"5173350006475601"` |
